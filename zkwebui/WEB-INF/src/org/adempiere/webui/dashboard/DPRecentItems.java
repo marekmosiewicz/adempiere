@@ -34,8 +34,8 @@ import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zul.Box;
 import org.zkoss.zul.Panel;
 import org.zkoss.zul.Panelchildren;
-import org.zkoss.zul.SimpleTreeModel;
-import org.zkoss.zul.SimpleTreeNode;
+import org.zkoss.zul.DefaultTreeNode;
+import org.zkoss.zul.DefaultTreeNode;
 import org.zkoss.zul.Toolbar;
 import org.zkoss.zul.Toolbarbutton;
 import org.zkoss.zul.Tree;
@@ -72,8 +72,8 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 	private static final String MSG_RefreshTooltip = "@DPRecentItems_RefreshToolTip@";
 
 	public Tree				tree = null;
-	private SimpleTreeModel	tModel;
-	private SimpleTreeNode	mroot = null;
+	private DefaultTreeNode	tModel;
+	private DefaultTreeNode	mroot = null;
 
 	private Box				bxRecentItems;
 
@@ -150,8 +150,8 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 		if (tree.getChildren().size() > 0)
 			tree.removeChild((Component) tree.getChildren().get(0));
 		
-		mroot = new SimpleTreeNode(null, new ArrayList<SimpleTreeNode>());
-		tModel = new SimpleTreeModel(mroot);
+		mroot = new DefaultTreeNode(null, new ArrayList<DefaultTreeNode>());
+		tModel = new DefaultTreeNode(mroot);
 		tree.setModel(tModel);
 		
 	}
@@ -178,8 +178,8 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 					recentItem.deleteEx(true);
 					continue; // record could have been deleted
 				}
-				SimpleTreeNode treeNode = new SimpleTreeNode(recentItem, new ArrayList<SimpleTreeNode>());
-				((List<SimpleTreeNode>) mroot.getChildren()).add(treeNode);
+				DefaultTreeNode treeNode = new DefaultTreeNode(recentItem, new ArrayList<DefaultTreeNode>());
+				((List<DefaultTreeNode>) mroot.getChildren()).add(treeNode);
 			}
 		}
 		
@@ -206,7 +206,7 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 				Treeitem treeitem = (Treeitem) treerow.getParent();
 				Object value = treeitem.getValue();
 
-				SimpleTreeNode stn = (SimpleTreeNode) value;
+				DefaultTreeNode stn = (DefaultTreeNode) value;
 				MRecentItem recentItem = (MRecentItem) stn.getData(); 
             	//	Open
             	if (recentItem != null) {
@@ -234,23 +234,23 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 			DropEvent de = (DropEvent) event;
 			Treerow tr = (Treerow) de.getDragged();
 			
-			// src.getValue is the SimpleTreeNode
+			// src.getValue is the DefaultTreeNode
 			Treeitem src = (Treeitem) tr.getParent();  			
 			
         	if(comp.equals(trashCan))
         	{
         		
-    			SimpleTreeNode sourceNode = (SimpleTreeNode) src.getValue();
+    			DefaultTreeNode sourceNode = (DefaultTreeNode) src.getValue();
     			
 				int path[] = tModel.getPath(getRoot(), sourceNode);
 
 				if (path != null && path.length > 0)
 				{
-					SimpleTreeNode parentNode = (SimpleTreeNode) tModel.getRoot();
+					DefaultTreeNode parentNode = (DefaultTreeNode) tModel.getRoot();
 					int index = path.length - 1;
 					for (int i = 0; i < index; i++)
 					{
-						parentNode = (SimpleTreeNode) tModel.getChild(parentNode, path[i]);
+						parentNode = (DefaultTreeNode) tModel.getChild(parentNode, path[i]);
 					}
 					parentNode.getChildren().remove(path[index]);
 				}
@@ -281,9 +281,9 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 	 * @see org.zkoss.zul.TreeitemRenderer#render(org.zkoss.zul.Treeitem, java.lang.Object)
 	 */
 	@Override
-	public void render(Treeitem ti, Object node) throws Exception
+	public void render(Treeitem ti, Object node,int index) throws Exception
 	{
-		SimpleTreeNode stn = (SimpleTreeNode) node;
+		DefaultTreeNode stn = (DefaultTreeNode) node;
 		MRecentItem recentItem = (MRecentItem) stn.getData();
 		String label = recentItem.getLabel();
 		String action = "";

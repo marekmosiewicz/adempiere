@@ -989,7 +989,7 @@ public class ADTabPanel extends Div implements Evaluatee, EventListener, DataSta
 
     	else if (event.getTarget() == treePanel.getTree()) {
     		Treeitem item =  treePanel.getTree().getSelectedItem();
-    		navigateTo((SimpleTreeNode)item.getValue());
+    		navigateTo((DefaultTreeNode)item.getValue());
     	}
     }
 
@@ -1077,7 +1077,7 @@ public class ADTabPanel extends Div implements Evaluatee, EventListener, DataSta
     		editor.repaintComponent(isRow);
     }
 
-    private void navigateTo(SimpleTreeNode value) {
+    private void navigateTo(DefaultTreeNode value) {
     	MTreeNode treeNode = (MTreeNode) value.getData();
     	//  We Have a TreeNode
 		int nodeID = treeNode.getNode_ID();
@@ -1198,7 +1198,7 @@ public class ADTabPanel extends Div implements Evaluatee, EventListener, DataSta
 		SimpleTreeModel model = (SimpleTreeModel) treePanel.getTree().getModel();
 
 		if (treePanel.getTree().getSelectedItem() != null) {
-			SimpleTreeNode treeNode = (SimpleTreeNode) treePanel.getTree().getSelectedItem().getValue();
+			DefaultTreeNode treeNode = (DefaultTreeNode) treePanel.getTree().getSelectedItem().getValue();
 			MTreeNode data = (MTreeNode) treeNode.getData();
 			if (data.getNode_ID() == recordId) {
 				model.removeNode(treeNode);
@@ -1206,7 +1206,7 @@ public class ADTabPanel extends Div implements Evaluatee, EventListener, DataSta
 			}
 		}
 
-		SimpleTreeNode treeNode = model.find(null, recordId);
+		DefaultTreeNode treeNode = model.find(null, recordId);
 		if (treeNode != null) {
 			model.removeNode(treeNode);
 		}
@@ -1220,11 +1220,11 @@ public class ADTabPanel extends Div implements Evaluatee, EventListener, DataSta
 			String imageIndicator = (String)gridTab.getValue("Action");  //  Menu - Action
 			//
 			SimpleTreeModel model = (SimpleTreeModel) treePanel.getTree().getModel();
-			SimpleTreeNode treeNode = model.getRoot();
+			DefaultTreeNode treeNode = model.getRoot();
 			MTreeNode root = (MTreeNode) treeNode.getData();
 			MTreeNode node = new MTreeNode (gridTab.getRecord_ID(), 0, name, description,
 					root.getNode_ID(), summary, imageIndicator, false, null);
-			SimpleTreeNode newNode = new SimpleTreeNode(node, new ArrayList<Object>());
+			DefaultTreeNode newNode = new DefaultTreeNode(node, new ArrayList<Object>());
 			model.addNode(newNode);
 			int[] path = model.getPath(model.getRoot(), newNode);
 			Treeitem ti = treePanel.getTree().renderItemByPath(path);
@@ -1236,13 +1236,13 @@ public class ADTabPanel extends Div implements Evaluatee, EventListener, DataSta
 		if (recordId <= 0) return;
 
 		if (treePanel.getTree().getSelectedItem() != null) {
-			SimpleTreeNode treeNode = (SimpleTreeNode) treePanel.getTree().getSelectedItem().getValue();
+			DefaultTreeNode treeNode = (DefaultTreeNode) treePanel.getTree().getSelectedItem().getValue();
 			MTreeNode data = (MTreeNode) treeNode.getData();
 			if (data.getNode_ID() == recordId) return;
 		}
 
 		SimpleTreeModel model = (SimpleTreeModel) treePanel.getTree().getModel();
-		SimpleTreeNode treeNode = model.find(null, recordId);
+		DefaultTreeNode treeNode = model.find(null, recordId);
 		if (treeNode != null) {
 			int[] path = model.getPath(model.getRoot(), treeNode);
 			Treeitem ti = treePanel.getTree().renderItemByPath(path);

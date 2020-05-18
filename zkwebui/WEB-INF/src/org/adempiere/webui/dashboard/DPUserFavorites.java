@@ -42,7 +42,7 @@ import org.zkoss.zul.Menuitem;
 import org.zkoss.zul.Menupopup;
 import org.zkoss.zul.Panel;
 import org.zkoss.zul.Panelchildren;
-import org.zkoss.zul.SimpleTreeNode;
+import org.zkoss.zul.DefaultTreeNode;
 import org.zkoss.zul.Toolbar;
 import org.zkoss.zul.Tree;
 import org.zkoss.zul.Treeitem;
@@ -258,8 +258,8 @@ public class DPUserFavorites extends DashboardPanel implements EventListener, Tr
 
 				public void run(Treeitem treeItem)
 				{
-					SimpleTreeNode simpleTreeNode = (SimpleTreeNode) treeItem.getValue();
-					MTreeNode mtn = (MTreeNode) simpleTreeNode.getData();
+					DefaultTreeNode DefaultTreeNode = (DefaultTreeNode) treeItem.getValue();
+					MTreeNode mtn = (MTreeNode) DefaultTreeNode.getData();
 					if (mtn.IsCollapsible())
 						treeItem.setOpen(false);
 					else
@@ -319,7 +319,7 @@ public class DPUserFavorites extends DashboardPanel implements EventListener, Tr
 			Treerow tr = (Treerow) de.getDragged();
 			
 			// From the Main Menu. src.getValue is the ID.
-			// From the UserFavorites, src.getValue is the SimpleTreeNode
+			// From the UserFavorites, src.getValue is the DefaultTreeNode
 			Treeitem src = (Treeitem) tr.getParent();  			
 			
 			if (comp.equals(hint))
@@ -335,7 +335,7 @@ public class DPUserFavorites extends DashboardPanel implements EventListener, Tr
         	else if(comp.equals(trashCan))
         	{
         		
-    			SimpleTreeNode sourceNode = (SimpleTreeNode) src.getValue();
+    			DefaultTreeNode sourceNode = (DefaultTreeNode) src.getValue();
 				ADTreeFavoriteOnDropListener.deleteNodeMenu(sourceNode);
         		
         	}
