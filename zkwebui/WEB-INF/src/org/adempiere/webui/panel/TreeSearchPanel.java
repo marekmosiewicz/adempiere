@@ -242,7 +242,7 @@ public class TreeSearchPanel extends Panel implements EventListener, TreeDataLis
             if (treeItem != null)
             {
                 select(treeItem);
-                Clients.showBusy(Msg.getMsg(Env.getCtx(), "Loading"), true);
+                Clients.showBusy(Msg.getMsg(Env.getCtx(), "Loading"));
                 Events.echoEvent("onPostSelect", this, null);
                 Event event2=new Event(Events.ON_CLICK, ((Component)(treeItem.getTreerow().getChildren().get(0))));
                 Events.postEvent(event2);
@@ -255,7 +255,7 @@ public class TreeSearchPanel extends Panel implements EventListener, TreeDataLis
      * don't call this directly, use internally for post selection event
      */
     public void onPostSelect() {
-    	Clients.showBusy(null, false);
+    	Clients.showBusy(null);
     	Event event = null;
     	if(tree.getSelectedItem() == null && eventToFire.equals(Events.ON_CLICK))
     		return;

@@ -185,7 +185,7 @@ public class SimpleFavoriteTreeModel extends SimpleTreeModel implements EventLis
 	 * @see org.zkoss.zul.TreeitemRenderer#render(org.zkoss.zul.Treeitem, java.lang.Object)
 	 */
 	@Override
-	public void render(Treeitem ti, Object node) throws Exception
+	public void render(Treeitem ti, Object node,int index) throws Exception
 	{
 		DefaultTreeNode stn = (DefaultTreeNode) node;
 		MTreeNode mtn = (MTreeNode) stn.getData();
@@ -334,7 +334,7 @@ public class SimpleFavoriteTreeModel extends SimpleTreeModel implements EventLis
 		treeFavNode.setNodeName(newName);
 		treeFavNode.saveEx();
 
-		int path[] = this.getPath(getRoot(), DefaultTreeNode);
+		int path[] = this.getPath(DefaultTreeNode);
 		if (path != null && path.length > 0)
 		{
 			DefaultTreeNode parentNode = getRoot();
@@ -351,7 +351,7 @@ public class SimpleFavoriteTreeModel extends SimpleTreeModel implements EventLis
 
 	public void removeNode(DefaultTreeNode treeNode)
 	{
-		int path[] = this.getPath(getRoot(), treeNode);
+		int path[] = this.getPath(treeNode);
 
 		if (path != null && path.length > 0)
 		{
@@ -403,7 +403,7 @@ public class SimpleFavoriteTreeModel extends SimpleTreeModel implements EventLis
 
 	public DefaultTreeNode getParent(DefaultTreeNode treeNode)
 	{
-		int path[] = this.getPath(getRoot(), treeNode);
+		int path[] = this.getPath(treeNode);
 
 		if (path != null && path.length > 0)
 		{
@@ -428,7 +428,7 @@ public class SimpleFavoriteTreeModel extends SimpleTreeModel implements EventLis
 			return null;
 		int cnt = getChildCount(fromNode);
 		for (int i = 0; i < cnt; i++) {
-			DefaultTreeNode child = getChild(fromNode, i);
+			DefaultTreeNode child = (DefaultTreeNode) getChild(fromNode, i);
 			DefaultTreeNode treeNode = find(child, recordId);
 			if (treeNode != null)
 				return treeNode;

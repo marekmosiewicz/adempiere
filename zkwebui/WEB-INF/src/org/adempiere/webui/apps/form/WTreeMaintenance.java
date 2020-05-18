@@ -291,7 +291,7 @@ public class WTreeMaintenance extends TreeMaintenance implements IFormController
 			SimpleTreeModel tm = (SimpleTreeModel) centerTree.getModel();
 			DefaultTreeNode stn = tm.find(tm.getRoot(), selected.id);
 			if (stn != null) {
-				int[] path = tm.getPath(tm.getRoot(), stn);
+				int[] path = tm.getPath(stn);
 				Treeitem ti = centerTree.renderItemByPath(path);
 				ti.setSelected(true);
 			}
@@ -340,7 +340,7 @@ public class WTreeMaintenance extends TreeMaintenance implements IFormController
 				tNode.setAllowsChildren(item.isSummary);
 				tNode.setImageIndicator(item.imageIndicator);
 				model.nodeUpdated(stn);
-				Treeitem ti = centerTree.renderItemByPath(model.getPath(model.getRoot(), stn));
+				Treeitem ti = centerTree.renderItemByPath(model.getPath(stn));
 				ti.setTooltiptext(item.description);
 			} else {
 				stn = new DefaultTreeNode(new MTreeNode(item.id, 0, item.name, item.description, 0, item.isSummary,

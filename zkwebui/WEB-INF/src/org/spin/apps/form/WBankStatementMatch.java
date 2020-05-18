@@ -441,7 +441,7 @@ public class WBankStatementMatch extends BankStatementMatchController
 			refresh();
 		} catch (Exception e) {
 			FDialog.error(getWindowNo(), "Error", e.getLocalizedMessage());
-			Clients.showBusy(null, false);
+			Clients.showBusy(null);
 		} finally {
 			if(isFromStatement()) {
 				dispose();
@@ -458,11 +458,11 @@ public class WBankStatementMatch extends BankStatementMatchController
 		getParameters();
 		String message = validateParameters();
 		if(Util.isEmpty(message)) {
-			Clients.showBusy(null, true);
+			Clients.showBusy(null);
 			loadPayments();
 			loadImportedPayments();
 			loadMatchedPayments();
-			Clients.showBusy(null, false);
+			Clients.showBusy(null);
 		} else {
 			FDialog.error(getWindowNo(), getForm(), "ValidationError", Msg.parseTranslation(Env.getCtx(), message));
 		}

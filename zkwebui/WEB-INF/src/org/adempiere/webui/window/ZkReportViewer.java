@@ -945,7 +945,7 @@ public class ZkReportViewer extends Window implements EventListener {
 			if (file == null)
 				return;
 		}
-		catch (InterruptedException e)
+		catch (Exception e)
 		{
 			log.warning(e.getLocalizedMessage());
 			return;
@@ -1297,7 +1297,7 @@ public class ZkReportViewer extends Window implements EventListener {
 					//	
 					return true;
 				}
-			} catch (InterruptedException e) {
+			} catch (Exception e) {
 				log.severe(e.getLocalizedMessage());
 			}
 		}

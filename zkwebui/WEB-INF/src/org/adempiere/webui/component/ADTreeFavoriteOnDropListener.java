@@ -239,7 +239,7 @@ public class ADTreeFavoriteOnDropListener implements EventListener
 	 */
 	private void menuItemList(DefaultTreeNode toNode)
 	{
-		int path[] = treeModel.getPath(treeModel.getRoot(), toNode);
+		int path[] = treeModel.getPath(toNode);
 		Treeitem toItem = tree.renderItemByPath(path);
 
 		tree.setSelectedItem(toItem);
@@ -458,7 +458,7 @@ public class ADTreeFavoriteOnDropListener implements EventListener
 			try
 			{
 				treeModel.addNode(parentNode, newNode, index);
-				int[] path = treeModel.getPath(treeModel.getRoot(), newNode);
+				int[] path = treeModel.getPath(newNode);
 				Treeitem ti = tree.renderItemByPath(path);
 				tree.setSelectedItem(ti);
 				Events.sendEvent(tree, new Event(Events.ON_SELECT, tree));
@@ -514,7 +514,7 @@ public class ADTreeFavoriteOnDropListener implements EventListener
 			index = parentNode.getChildren().indexOf(node) +1;
 
 		treeModel.addNode(parentNode, node, index);
-		int[] path = treeModel.getPath(treeModel.getRoot(), node);
+		int[] path = treeModel.getPath(node);
 		Treeitem ti =	tree.renderItemByPath(path);
 		tree.setSelectedItem(ti);		
 		Events.sendEvent(tree, new Event(Events.ON_SELECT, tree));
@@ -564,7 +564,7 @@ public class ADTreeFavoriteOnDropListener implements EventListener
 		else // drop on a summary node
 		{
 			// prompt user to select insert after or drop into the summary node
-			int path[] = treeModel.getPath(treeModel.getRoot(), toNode);
+			int path[] = treeModel.getPath(toNode);
 			Treeitem toItem = tree.renderItemByPath(path);
 			
 			tree.setSelectedItem(toItem);
@@ -620,7 +620,7 @@ public class ADTreeFavoriteOnDropListener implements EventListener
 		// insert
 		treeModel.addNode(newParent, movingNode, index);
 
-		int path[] = treeModel.getPath(treeModel.getRoot(), movingNode);
+		int path[] = treeModel.getPath(movingNode);
 		Treeitem movingItem = tree.renderItemByPath(path);
 		tree.setSelectedItem(movingItem);
 		Events.sendEvent(tree, new Event(Events.ON_SELECT, tree));

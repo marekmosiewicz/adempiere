@@ -326,7 +326,7 @@ public class WMediaDialog extends Window implements EventListener
 			if (media == null)
 				return;
 		}
-		catch (InterruptedException e) 
+		catch (Exception e) 
 		{
 			e.printStackTrace();
 		}

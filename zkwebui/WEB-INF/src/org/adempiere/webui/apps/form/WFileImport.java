@@ -289,7 +289,7 @@ public class WFileImport extends FileImportController implements IFormController
 		InputStream file = null;
 		try {
 			media = Fileupload.get();
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		//	

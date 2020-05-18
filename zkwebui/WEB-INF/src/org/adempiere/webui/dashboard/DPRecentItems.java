@@ -242,7 +242,7 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
         		
     			DefaultTreeNode sourceNode = (DefaultTreeNode) src.getValue();
     			
-				int path[] = tModel.getPath(getRoot(), sourceNode);
+				int path[] = tModel.getPath(sourceNode);
 
 				if (path != null && path.length > 0)
 				{

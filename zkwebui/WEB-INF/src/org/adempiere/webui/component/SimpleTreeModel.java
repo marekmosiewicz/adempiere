@@ -28,6 +28,7 @@ import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zul.DefaultTreeNode;
 import org.zkoss.zul.Tree;
+import org.zkoss.zul.TreeNode;
 import org.zkoss.zul.Treecell;
 import org.zkoss.zul.Treecol;
 import org.zkoss.zul.Treecols;
@@ -146,7 +147,7 @@ public class SimpleTreeModel extends org.zkoss.zul.DefaultTreeModel implements T
 	 * @param ti
 	 * @param node
 	 */
-	public void render(Treeitem ti, Object node) {
+	public void render(Treeitem ti, Object node,int index) {
 		Treecell tc = new Treecell(Objects.toString(node));
 		Treerow tr = null;
 		if(ti.getTreerow()==null){
@@ -184,7 +185,7 @@ public class SimpleTreeModel extends org.zkoss.zul.DefaultTreeModel implements T
 	}
 
 	@Override
-	public DefaultTreeNode getChild(Object parent, int index) {
+	public DefaultTreeNode getChild(TreeNode parent, int index) {
 		return (DefaultTreeNode) super.getChild(parent, index);
 	}
 
@@ -192,13 +193,13 @@ public class SimpleTreeModel extends org.zkoss.zul.DefaultTreeModel implements T
 	 * @param treeNode
 	 */
 	public void removeNode(DefaultTreeNode treeNode) {
-		int path[] = this.getPath(getRoot(), treeNode);
+		int path[] = this.getPath(treeNode);
 		
 		if (path != null && path.length > 0) {
 			DefaultTreeNode parentNode = getRoot();
 			int index = path.length - 1;
 			for (int i = 0; i < index; i++) {
-				parentNode = getChild(parentNode, path[i]);
+				parentNode = (DefaultTreeNode) getChild(parentNode, path[i]);
 			}
 			
 			
@@ -245,13 +246,13 @@ public class SimpleTreeModel extends org.zkoss.zul.DefaultTreeModel implements T
 	 * @return DefaultTreeNode
 	 */
 	public DefaultTreeNode getParent(DefaultTreeNode treeNode) {
-		int path[] = this.getPath(getRoot(), treeNode);
+		int path[] = this.getPath(treeNode);
 		
 		if (path != null && path.length > 0) {
 			DefaultTreeNode parentNode = getRoot();
 			int index = path.length - 1;
 			for (int i = 0; i < index; i++) {
-				parentNode = getChild(parentNode, path[i]);
+				parentNode = (DefaultTreeNode) getChild(parentNode, path[i]);
 			}
 						
 			return parentNode;
@@ -296,7 +297,7 @@ public class SimpleTreeModel extends org.zkoss.zul.DefaultTreeModel implements T
 				
 		int cnt = getChildCount(fromNode);
 		for(int i = 0; i < cnt; i++ ) {
-			DefaultTreeNode child = getChild(fromNode, i);
+			DefaultTreeNode child = (DefaultTreeNode) getChild(fromNode, i);
 			DefaultTreeNode treeNode = find(child, recordId);
 			if (treeNode != null)
 				return treeNode;

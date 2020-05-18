@@ -534,7 +534,7 @@ public class WPaySelect extends PaySelect
 				processModalDialog.doModal();
 			} catch (SuspendNotAllowedException e) {
 				log.log(Level.SEVERE, e.getLocalizedMessage(), e);
-			} catch (InterruptedException e) {
+			} catch (Exception e) {
 				log.log(Level.SEVERE, e.getLocalizedMessage(), e);
 			}
 		}
@@ -550,7 +550,7 @@ public class WPaySelect extends PaySelect
 	{
 		if (m_isLock) return;
 		m_isLock = true;
-		Clients.showBusy(null, true);
+		Clients.showBusy(null);
 	}   //  lockUI
 
 	/**
@@ -562,7 +562,7 @@ public class WPaySelect extends PaySelect
 		if (!m_isLock) return;
 		m_isLock = false;
 		m_pi = pi;
-		Clients.showBusy(null, false);	
+		Clients.showBusy(null);	
 		
 		//TODO: The response returned is always Cancel
 //		if (!FDialog.ask(0, form, "VPaySelectPrint?", "(" + m_pi.getSummary() + ")"))

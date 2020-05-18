@@ -102,7 +102,7 @@ public class ADTreeOnDropListener implements EventListener {
 		else						//	drop on a summary node
 		{
 			//prompt user to select insert after or drop into the summary node
-			int path[] = treeModel.getPath(treeModel.getRoot(), toNode);
+			int path[] = treeModel.getPath(toNode);
 			Treeitem toItem = tree.renderItemByPath(path);
 			
 			tree.setSelectedItem(toItem);
@@ -164,7 +164,7 @@ public class ADTreeOnDropListener implements EventListener {
 		//  insert
 		treeModel.addNode(newParent, movingNode, index);
 		
-		int path[] = treeModel.getPath(treeModel.getRoot(), movingNode);
+		int path[] = treeModel.getPath(movingNode);
 		Treeitem movingItem = tree.renderItemByPath(path);		
 		tree.setSelectedItem(movingItem);
 		Events.sendEvent(tree, new Event(Events.ON_SELECT, tree));

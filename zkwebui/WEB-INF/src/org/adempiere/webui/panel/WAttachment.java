@@ -36,7 +36,7 @@ import org.compiere.util.Env;
 import org.compiere.util.Msg;
 import org.zkoss.util.media.AMedia;
 import org.zkoss.util.media.Media;
-import org.zkoss.zk.au.AuScript;
+import org.zkoss.zk.au.out.AuScript;
 import org.zkoss.zk.au.out.AuEcho;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
@@ -468,7 +468,7 @@ public class WAttachment extends Window implements EventListener
 				return;
 			}
 		}
-		catch (InterruptedException e) 
+		catch (Exception e) 
 		{
 			log.log(Level.WARNING, e.getLocalizedMessage(), e);
 		}

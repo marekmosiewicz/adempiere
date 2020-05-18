@@ -1791,7 +1791,7 @@ public abstract class AbstractADWindowPanel extends AbstractUIPart implements To
 				processModalDialog.setPage(this.getComponent().getPage());
 				processModalDialog.doModal();
 			}
-			catch (InterruptedException e) {
+			catch (Exception e) {
 			}
 		}
 		else
@@ -2347,14 +2347,14 @@ public abstract class AbstractADWindowPanel extends AbstractUIPart implements To
 		m_uiLocked = true;
 
 		if (Executions.getCurrent() != null)
-			Clients.showBusy(null, true);
+			Clients.showBusy(null);
 		else
 		{
 			try {
 				//get full control of desktop
 				Executions.activate(getComponent().getDesktop(), 2000);
 				try {
-					Clients.showBusy(null, true);
+					Clients.showBusy(null);
                 } catch(Error ex){
                 	throw ex;
                 } finally{
@@ -2387,7 +2387,7 @@ public abstract class AbstractADWindowPanel extends AbstractUIPart implements To
 			{
 				updateUI(pi);
 			} else {
-				Clients.showBusy(null, false);
+				Clients.showBusy(null);
 			}
 		}
 		else
@@ -2400,7 +2400,7 @@ public abstract class AbstractADWindowPanel extends AbstractUIPart implements To
 					{
 						updateUI(pi);
 					} else {
-						Clients.showBusy(null, false);
+						Clients.showBusy(null);
 					}
                 } catch(Error ex){
                 	throw ex;
@@ -2432,7 +2432,7 @@ public abstract class AbstractADWindowPanel extends AbstractUIPart implements To
 		ProcessInfoUtil.setLogFromDB(pi);
 		String logInfo = pi.getLogInfo();
 		//	
-		Clients.showBusy(null, false);
+		Clients.showBusy(null);
 		if (logInfo.length() > 0)
 			FDialog.info(curWindowNo, this.getComponent(), Env.getHeader(ctx, curWindowNo),
 				pi.getTitle() + "<br>" + logInfo);

@@ -203,7 +203,7 @@ public class ADTreePanel extends Panel implements EventListener
 				rootData.getNode_ID(), isSummary, imageIndicator, false, null);
 			DefaultTreeNode newNode = new DefaultTreeNode(mTreeNode, null); 
 			model.addNode(root, newNode, 0);
-			int[] path = model.getPath(model.getRoot(), newNode);
+			int[] path = model.getPath(newNode);
 			Treeitem ti = tree.renderItemByPath(path);
 			tree.setSelectedItem(ti);
 		}
@@ -214,7 +214,7 @@ public class ADTreePanel extends Panel implements EventListener
 			MTreeNode mTreeNode = (MTreeNode) node.getData();
 			mTreeNode.setName (name);
 			mTreeNode.setAllowsChildren(isSummary);
-			int[] path = model.getPath(model.getRoot(), node);
+			int[] path = model.getPath(node);
 			Treeitem ti = tree.renderItemByPath(path);
 			tree.setSelectedItem(ti);
 		}

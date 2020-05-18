@@ -201,7 +201,7 @@ public class WImageDialog extends Window implements EventListener
 			if (imageFile == null)
 				return;
 		}
-		catch (InterruptedException e) 
+		catch (Exception e) 
 		{
 			log.warning(e.getLocalizedMessage());
 			return;
