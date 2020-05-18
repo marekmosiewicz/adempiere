@@ -402,13 +402,15 @@ public class AdempiereWebUI extends Window implements EventListener, IWebClient
 	}
 
 	//global command
+	//FIXE ZK9
+	/*
 	static {
 		new ZoomCommand("onZoom", Command.IGNORE_OLD_EQUIV);
 		new DrillCommand("onDrillAcross", Command.IGNORE_OLD_EQUIV);
 		new DrillCommand("onDrillDown", Command.IGNORE_OLD_EQUIV);
 		new TokenCommand(TokenEvent.ON_USER_TOKEN, Command.IGNORE_OLD_EQUIV);
 	}
-
+*/
 	@Override
 	public void changeRole(MUser user)
 	{

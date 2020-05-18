@@ -53,12 +53,12 @@ import org.zkoss.zhtml.Td;
 import org.zkoss.zhtml.Tr;
 import org.zkoss.zk.au.out.AuFocus;
 import org.zkoss.zk.au.out.AuScript;
-import org.zkoss.zk.fn.ZkFns;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.WrongValueException;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.http.Wpds;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Image;
 
@@ -316,7 +316,7 @@ public class NewPassPanel extends Window implements EventListener
 
             Locales.setThreadLocal(language.getLocale());
 
-            Clients.response("zkLocaleJavaScript", new AuScript(null, ZkFns.outLocaleJavaScript()));
+            Clients.response("zkLocaleJavaScript", new AuScript(null, Wpds.outLocaleJavaScript()));
             String timeoutText = getUpdateTimeoutTextScript();
             if (!Strings.isEmpty(timeoutText))
             	Clients.response("zkLocaleJavaScript2", new AuScript(null, timeoutText));

@@ -22,6 +22,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.logging.Level;
 
 import org.adempiere.webui.apps.AEnv;
@@ -860,5 +861,8 @@ public class InfoBPartnerPanel extends InfoPanel implements EventListener, WTabl
 		checkCustomer.setSelected(m_isSOMatch);  	//  Customers Only
 		checkAND.setSelected(true); 		//  Use AND
 	}
-
+	@Override
+	public String getSortDirection(Comparator cmpr) {
+		return "natural";
+	}
 }

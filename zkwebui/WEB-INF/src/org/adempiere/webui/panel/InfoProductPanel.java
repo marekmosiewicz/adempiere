@@ -39,6 +39,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Vector;
 import java.util.logging.Level;
 
@@ -2090,5 +2091,8 @@ public class InfoProductPanel extends InfoPanel implements EventListener, ValueC
 		p_centerLayout.getSouth().setOpen(false);
 		return;
 	}
-
+	@Override
+	public String getSortDirection(Comparator cmpr) {
+		return "natural";
+	}
 }	//	InfoProduct

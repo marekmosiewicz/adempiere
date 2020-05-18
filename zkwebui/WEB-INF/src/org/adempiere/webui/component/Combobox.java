@@ -132,7 +132,9 @@ public class Combobox extends org.zkoss.zul.Combobox
     
     /** Returns RS_NO_WIDTH|RS_NO_HEIGHT.
 	 */
+    //FIXME ZK9
+   /*
 	protected int getRealStyleFlags() {
-		return super.getRealStyleFlags() & 0x0006;
-	}
+		return super.get.getRealStyleFlags() & 0x0006;
+	}*/
 }

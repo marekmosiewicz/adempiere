@@ -52,14 +52,15 @@ import org.zkoss.zk.ui.event.OpenEvent;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Borderlayout;
 import org.zkoss.zul.Center;
+import org.zkoss.zul.Hlayout;
 import org.zkoss.zul.North;
 import org.zkoss.zul.West;
-import org.zkoss.zkmax.zul.Portalchildren;
-import org.zkoss.zkmax.zul.Portallayout;
+
 import org.zkoss.zul.Html;
 import org.zkoss.zul.Panel;
 import org.zkoss.zul.Panelchildren;
 import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Vlayout;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -78,6 +79,7 @@ import java.util.logging.Level;
  */
 public class DefaultDesktop extends TabbedDesktop implements MenuListener, Serializable, EventListener, IServerPushCallback
 {
+	//FIME ZK9
 	/**
 	 * generated serial version ID 
 	 */
@@ -168,14 +170,14 @@ public class DefaultDesktop extends TabbedDesktop implements MenuListener, Seria
 		Tabpanel homeTab = new Tabpanel();
 		windowContainer.addWindow(homeTab, Msg.getMsg(Env.getCtx(), "Home").replaceAll("&", ""), false);
 
-		Portallayout portalLayout = new Portallayout();
+		Hlayout portalLayout = new Hlayout();
 		portalLayout.setWidth("100%");
 		portalLayout.setHeight("100%");
 		portalLayout.setStyle("position: absolute; overflow: auto");
 		homeTab.appendChild(portalLayout);
 
 		// Dashboard content
-		Portalchildren portalChildren = null;
+		Vlayout portalChildren = null;
 		int currentColumnNo = 0;
 		int noOfColumns = 0;
 		int width = 0;
@@ -198,7 +200,7 @@ public class DefaultDesktop extends TabbedDesktop implements MenuListener, Seria
 						String columnWidth = "" + width;
 						if (size != null && size.length > 0 && size.length > counter && !Util.isEmpty(size[counter], true))
 							columnWidth = size[counter];
-						portalChildren = new Portalchildren();
+						portalChildren = new Vlayout();
 						portalLayout.appendChild(portalChildren);
 						portalChildren.setWidth(columnWidth.trim() + "%");
 						portalChildren.setStyle("padding: 5px");

@@ -184,7 +184,7 @@ public class WStringEditor extends WEditor implements ContextMenuListener
 	        	}
 	        }
 	        //	BR [ 640 ]
-	        else  if (getComponent() instanceof org.zkoss.zul.api.Textbox)
+	        else  if (getComponent() instanceof StringBox)
 	        	((StringBox)component).setObscureType(obscureType);
 		}
     }

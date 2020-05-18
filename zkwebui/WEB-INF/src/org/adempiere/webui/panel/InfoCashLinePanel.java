@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 
 import org.adempiere.webui.apps.AEnv;
 import org.adempiere.webui.component.Checkbox;
@@ -713,5 +714,8 @@ public class InfoCashLinePanel extends InfoPanel implements ValueChangeListener,
 		fPayment_ID.setValue(null);
 		cbAbsolute.setChecked(false);
 	}
-
+	@Override
+	public String getSortDirection(Comparator cmpr) {
+		return "natural";
+	}
 }

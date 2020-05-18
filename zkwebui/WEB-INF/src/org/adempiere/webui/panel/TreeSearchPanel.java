@@ -235,7 +235,7 @@ public class TreeSearchPanel extends Panel implements EventListener, TreeDataLis
 	            treeItem = (Treeitem) node;
             } else {
             	DefaultTreeNode sNode = (DefaultTreeNode) node;
-            	int[] path = tree.getModel().getPath(tree.getModel().getRoot(), sNode);
+            	int[] path = tree.getModel().getPath(sNode);
     			treeItem = tree.renderItemByPath(path);
     			tree.setSelectedItem(treeItem);
             }
