@@ -23,7 +23,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 
-import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf2.CompiereColor;
 
 /**
  *  Color Persistent Object Model

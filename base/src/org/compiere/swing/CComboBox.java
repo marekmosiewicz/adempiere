@@ -48,7 +48,7 @@ import javax.swing.text.JTextComponent;
 import org.adempiere.exceptions.ValueChangeListener;
 import org.adempiere.plaf.AdempierePLAF;
 import org.compiere.model.GridField;
-import org.compiere.plaf.CompiereComboBoxUI;
+import org.compiere.plaf2.CompiereComboBoxUI;
 import org.compiere.util.NamePair;
 import org.compiere.util.Trace;
 

@@ -65,7 +65,7 @@ import org.compiere.model.MPAttributeLookup;
 import org.compiere.model.MProduct;
 import org.compiere.model.MTab;
 import org.compiere.model.MWindow;
-import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf2.CompiereColor;
 import org.compiere.swing.CButton;
 import org.compiere.swing.CLabel;
 import org.compiere.swing.CPanel;

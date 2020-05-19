@@ -14,7 +14,7 @@
 package test.functional;
 
 import org.compiere.model.MColor;
-import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf2.CompiereColor;
 import org.compiere.util.Env;
 
 import test.AdempiereTestCase;

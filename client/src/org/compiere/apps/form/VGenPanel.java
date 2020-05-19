@@ -38,7 +38,7 @@ import org.compiere.minigrid.MiniTable;
 import org.compiere.model.MQuery;
 import org.compiere.model.MTable;
 import org.compiere.model.PrintInfo;
-import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf2.CompiereColor;
 import org.compiere.print.MPrintFormat;
 import org.compiere.print.ReportCtl;
 import org.compiere.print.ReportEngine;

@@ -30,8 +30,8 @@ import javax.swing.JFrame;
 
 import org.compiere.model.GridField;
 import org.compiere.model.GridTab;
-import org.compiere.plaf.CompiereColor;
-import org.compiere.plaf.CompiereLookAndFeel;
+import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf2.CompiereLookAndFeel;
 import org.compiere.swing.CButton;
 import org.compiere.swing.ColorEditor;
 import org.compiere.util.CLogger;

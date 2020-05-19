@@ -32,7 +32,7 @@ import java.util.logging.Level;
 import javax.swing.JComponent;
 
 import org.compiere.model.MAssignmentSlot;
-import org.compiere.plaf.CompiereUtils;
+import org.compiere.plaf2.CompiereUtils;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 

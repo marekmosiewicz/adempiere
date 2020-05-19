@@ -26,8 +26,8 @@ import javax.swing.JToggleButton;
 import org.adempiere.exceptions.ValueChangeListener;
 import org.adempiere.plaf.AdempierePLAF;
 import org.compiere.model.GridField;
-import org.compiere.plaf.CompiereColor;
-import org.compiere.plaf.CompiereLookAndFeel;
+import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf2.CompiereLookAndFeel;
 
 /**
  *  Adempiere Color Taggle Button

@@ -60,7 +60,7 @@ import org.compiere.model.MFactReconciliation;
 import org.compiere.model.MLookup;
 import org.compiere.model.MLookupFactory;
 import org.compiere.model.Query;
-import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf2.CompiereColor;
 import org.compiere.process.ProcessInfo;
 import org.compiere.swing.CLabel;
 import org.compiere.swing.CPanel;

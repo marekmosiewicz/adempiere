@@ -29,8 +29,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 
 import org.adempiere.plaf.AdempierePLAF;
-import org.compiere.plaf.CompiereColor;
-import org.compiere.plaf.CompiereLookAndFeel;
+import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf2.CompiereLookAndFeel;
 
 import sun.swing.UIAction;
 

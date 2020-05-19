@@ -47,7 +47,7 @@ import org.compiere.grid.ed.AutoCompletion;
 import org.compiere.model.MQuery;
 import org.compiere.model.MRole;
 import org.compiere.model.MTable;
-import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf2.CompiereColor;
 import org.compiere.swing.CButton;
 import org.compiere.swing.CComboBox;
 import org.compiere.swing.CPanel;

@@ -38,9 +38,9 @@ import javax.swing.UIManager;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.MetalTheme;
 
-import org.compiere.plaf.CompiereLookAndFeel;
-import org.compiere.plaf.CompiereThemeBlueMetal;
-import org.compiere.plaf.CompiereThemeIce;
+import org.compiere.plaf2.CompiereLookAndFeel;
+import org.compiere.plaf2.CompiereThemeBlueMetal;
+import org.compiere.plaf2.CompiereThemeIce;
 import org.compiere.swing.CButton;
 import org.compiere.swing.ColorBlind;
 import org.compiere.swing.ExtendedTheme;

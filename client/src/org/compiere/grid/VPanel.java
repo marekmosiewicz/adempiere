@@ -131,7 +131,7 @@ public final class VPanel extends CTabbedPane
 	//[ 1757088 ]  	
 	private java.util.Hashtable<String, JPanel> m_tablist = new java.util.Hashtable<String, JPanel>();
 	private java.util.Hashtable<Integer, CollapsiblePanel> m_tabincludelist = new java.util.Hashtable<Integer, CollapsiblePanel>();
-	private CPanel m_main = new CPanel(org.compiere.plaf.CompiereColor.getDefaultBackground());		
+	private CPanel m_main = new CPanel(org.compiere.plaf2.CompiereColor.getDefaultBackground());		
 	private DropShadowBorder marginBorder = new DropShadowBorder();
 
 

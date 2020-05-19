@@ -58,8 +58,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.MetalTheme;
 
-import org.compiere.plaf.CompiereColor;
-import org.compiere.plaf.CompiereLookAndFeel;
+import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf2.CompiereLookAndFeel;
 import org.compiere.swing.CButton;
 import org.compiere.swing.CCheckBox;
 import org.compiere.swing.CComboBox;

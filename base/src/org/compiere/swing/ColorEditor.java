@@ -37,7 +37,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JColorChooser;
 
 import org.adempiere.plaf.AdempierePLAF;
-import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf2.CompiereColor;
 import org.compiere.util.KeyNamePair;
 import org.compiere.util.ValueNamePair;
 

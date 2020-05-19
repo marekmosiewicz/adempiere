@@ -12,7 +12,7 @@ import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.MetalTheme;
 
-import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf2.CompiereColor;
 
 public final class ThemeUtils {
 
