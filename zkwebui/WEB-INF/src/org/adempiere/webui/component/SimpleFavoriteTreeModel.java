@@ -41,6 +41,7 @@ import org.zkoss.zk.ui.event.MouseEvent;
 import org.zkoss.zul.DefaultTreeModel;
 import org.zkoss.zul.DefaultTreeNode;
 import org.zkoss.zul.Tree;
+import org.zkoss.zul.TreeNode;
 import org.zkoss.zul.Treecell;
 import org.zkoss.zul.Treeitem;
 import org.zkoss.zul.TreeitemRenderer;
@@ -438,7 +439,7 @@ public class SimpleFavoriteTreeModel extends SimpleTreeModel implements EventLis
 	
 	@Override
 	public DefaultTreeNode getChild(Object parent, int index) {
-		return (DefaultTreeNode) super.getChild(parent, index);
+		return (DefaultTreeNode) super.getChild((TreeNode)parent, index);
 	}
 
 }

@@ -6,7 +6,8 @@ function Calc()
 	this.clearAll = clearAll;
 	this.evaluate = evaluate;
 	this.append = append;
-	this.percentage = percentage
+	this.setTxtCalcFocus = setTxtCalcFocus;
+	this.isNumberKey = isNumberKey;
 
 	function validate(displayTextId, calcTextId, integral, separatorKey, e)
 	{
@@ -22,16 +23,11 @@ function Calc()
 	     	evaluate(displayTextId, calcTextId);
 	        return false;
 	     }
-	     
 	     else if (key == 0) // control, delete, ...
 	     {
 	     	return true;
 	     }
 	     else if (key == 8) // backspace
-	     {
-	     	return true;
-	     }
-	     else if (key == 37) // %
 	     {
 	     	return true;
 	     }
@@ -47,7 +43,7 @@ function Calc()
 	     {
 	     	return true;
 	     }
-	     else if (key == 42 || key == 43 || key == 45 || key == 47) //*, +, -, /
+	     else if (key == 42 || key == 43 || key == 45 || key == 47 || key == 37) // *, +, -, /, %
 	     {
 	     	return true;
 	     }
@@ -71,6 +67,10 @@ function Calc()
 		catch (err)
 		{
 		}
+		finally
+		{
+			document.getElementById(calcTextId).focus();
+		}
 	}
 
 	function clear(calcTextId)
@@ -88,41 +88,12 @@ function Calc()
 		catch (err)
 		{
 		}
-
-	}
-	
-	function percentage(displayTextId, calcTextId, separator)
-	{
-		try
+		finally
 		{
-			var calcText = document.getElementById(calcTextId);
-			var value = calcText.value + " / 100";
-			if (separator != '.')
-			{
-				var re = new RegExp("[" + separator + "]");
-				value = value.replace(re,'.');
-			}
-			var result = "" + eval(value);
-			if (separator != '.')
-			{
-				result = result.replace(/\./, separator);
-			}
-			calcText.value = result;
-
-			var displayText = document.getElementById(displayTextId);
-
-			if (!displayText.readOnly && calcText.value != 'undefined')
-			{
-				displayText.value = calcText.value;
-				setTimeout("document.getElementById('" + displayTextId + "').focus()", 100);
-			}
+			document.getElementById(calcTextId).focus();
 		}
-	   	catch (err)
-	   	{
-	   	}
 	}
-	
-	
+
 	function evaluate(displayTextId, calcTextId, separator)
 	{
 		try
@@ -152,12 +123,30 @@ function Calc()
 	   	catch (err)
 	   	{
 	   	}
+	   	finally
+		{
+			document.getElementById(calcTextId).focus();
+		}
+	   	
 	}
 
 	function append(calcTextId, val)
 	{
 		var calcText = document.getElementById(calcTextId);
 		calcText.value += val;
+		setTimeout("document.getElementById('" + calcTextId + "').focus()", 50);
+	}
+	
+	function setTxtCalcFocus(calcTextId)
+	{
+		document.getElementById(calcTextId).focus();
+	}
+	
+	function isNumberKey(evt) {
+		var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ((charCode != 46 || $(evt.target).val().indexOf('.') != -1) && charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+		return true;
 	}
 }
 

@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Express;
 
@@ -90,32 +91,26 @@ public class Grid extends org.zkoss.zul.Grid
 	{
 		return addEventListener((listener instanceof Express) ? 1000 : 0, evtnm, listener);
 	}
-	
-	public boolean addEventListener(int priority, String evtnm, EventListener listener)
-	{
-		boolean b = super.addEventListener(evtnm, listener);
-		if (b)
-		{
+	@Override
+	public boolean addEventListener(int priority, String evtnm,
+			EventListener<? extends Event> listener) {
+		boolean b = super.addEventListener(priority, evtnm, listener);
+		if (b) {
 			final EventListenerInfo listenerInfo = new EventListenerInfo(priority, listener);
 			List<EventListenerInfo> list = listeners.get(evtnm);
-			if (list != null)
-			{
-				for (Iterator<EventListenerInfo> it = list.iterator(); it.hasNext();)
-				{
+			if (list != null) {
+				for (Iterator<EventListenerInfo> it = list.iterator(); it.hasNext();) {
 					final EventListenerInfo li = it.next();
-					if (li.listener.equals(listener))
-					{
+					if (li.listener.equals(listener)) {
 						if (li.priority == priority)
-							return false; // nothing to do
-						it.remove(); // re-added later
+							return false; //nothing to do
+						it.remove(); //re-added later
 						break;
 					}
 				}
 
 				list.add(listenerInfo);
-			}
-			else
-			{
+			} else {
 				listeners.put(evtnm, list = new LinkedList<EventListenerInfo>());
 				list.add(listenerInfo);
 			}
@@ -123,57 +118,44 @@ public class Grid extends org.zkoss.zul.Grid
 		return b;
 	}
 
-	public boolean removeEventListener(String evtnm, EventListener listener)
-	{
+	@Override
+	public boolean removeEventListener(String evtnm,
+			EventListener<? extends Event> listener) {
 		boolean b = super.removeEventListener(evtnm, listener);
-		if (b)
-		{
+		if (b) {
 			List<EventListenerInfo> list = listeners.get(evtnm);
-			if (list != null)
-			{
-				for (Iterator<EventListenerInfo> it = list.iterator(); it.hasNext();)
-				{
+			if (list != null) {
+				for (Iterator<EventListenerInfo> it = list.iterator(); it.hasNext();) {
 					final EventListenerInfo li = it.next();
-					if (li.listener.equals(listener))
-					{
+					if (li.listener.equals(listener)) {
 						it.remove();
 						break;
 					}
 				}
 			}
 		}
-
+		
 		return b;
 	}
-
-	public void copyEventListeners(Grid grid)
-	{
-		for (String evtnm : listeners.keySet())
-		{
+	
+	public void copyEventListeners(Grid grid) {
+		for(String evtnm : listeners.keySet()) {
 			if (evtnm.equals("onInitModel"))
 				continue;
 			List<EventListenerInfo> list = listeners.get(evtnm);
-			for (EventListenerInfo info : list)
-			{
+			for(EventListenerInfo info : list) {
 				grid.addEventListener(info.priority, evtnm, info.listener);
 			}
 		}
 	}
+	
+	private static class EventListenerInfo {
+		private final int priority;
+		private final EventListener<? extends Event> listener;
 
-	/**
-	 * Temporarily hold in memory, Event Listener Info
-	 * 
-	 * @author Sachin
-	 */
-	private static class EventListenerInfo
-	{
-		private final int			priority;
-		private final EventListener	listener;
-
-		private EventListenerInfo(int priority, EventListener listener)
-		{
+		private EventListenerInfo(int priority, EventListener<? extends Event> listener) {
 			this.priority = priority;
 			this.listener = listener;
 		}
-	}
+	}	
 }

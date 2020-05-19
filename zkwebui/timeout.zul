@@ -21,11 +21,11 @@
 	var callback = function(ok, val) {
 		if (ok && !!val)
 		{
-			$e("${timeoutText.uuid}").innerHTML = val;
+			$("#${timeoutText.uuid}")[0].innerHTML = val;
 		}
 	};
     
-    adempiere.store.get("zkTimeoutText", callback);
+    adempiere.get("zkTimeoutText", callback);
 ]]>	
 </script>
 </window>

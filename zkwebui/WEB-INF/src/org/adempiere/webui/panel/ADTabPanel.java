@@ -40,6 +40,7 @@ import org.adempiere.webui.component.Tabs;
 import org.adempiere.webui.editor.*;
 import org.adempiere.webui.event.ContextMenuListener;
 import org.adempiere.webui.util.GridTabDataBinder;
+import org.adempiere.webui.util.ZKUpdateUtil;
 import org.adempiere.webui.window.FDialog;
 import org.compiere.model.*;
 import org.compiere.util.CLogger;
@@ -176,11 +177,12 @@ public class ADTabPanel extends Div implements Evaluatee, EventListener, DataSta
     	LayoutUtils.addSclass("adtab-content", this);
         grid = new Grid();
         //have problem moving the following out as css class
-        grid.setWidth("100%");
-        grid.setHeight("100%");
-        grid.setVflex(true);
+        ZKUpdateUtil.setWidth(grid, "100%");
+        ZKUpdateUtil.setHeight(grid, "100%");
+        ZKUpdateUtil.setVflex(grid, false);
         grid.setStyle("margin:0; padding:0; position: absolute");
         grid.makeNoStrip();
+        
 
         listPanel = new GridPanel();
         listPanel.setADTabPanel(this);

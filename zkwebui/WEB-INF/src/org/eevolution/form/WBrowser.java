@@ -48,6 +48,7 @@ import org.adempiere.webui.panel.CustomForm;
 import org.adempiere.webui.panel.IFormController;
 import org.adempiere.webui.panel.StatusBarPanel;
 import org.adempiere.webui.session.SessionManager;
+import org.adempiere.webui.util.ZKUpdateUtil;
 import org.adempiere.webui.window.FDialog;
 import org.compiere.apps.ProcessCtl;
 import org.compiere.minigrid.IDColumn;
@@ -557,14 +558,14 @@ public class WBrowser extends Browser implements IFormController,
 		collapsibleSeach.setStyle("border: none");
 		searchTab.appendChild(collapsibleSeach);
 
-		detail.setWidth("100%");
-		detail.setHeight("100%");
+		ZKUpdateUtil.setWidth(detail, "100%");
+		ZKUpdateUtil.setHeight(detail, "100%");
 		Center dCenter = new Center();
 		dCenter.appendChild(detail);
 		dCenter.setBorder("none");
-		detail.setVflex(true);
-		detail.setFixedLayout(true);
-		dCenter.setFlex(true);
+		ZKUpdateUtil.setVflex(detail, true);
+		detail.setSizedByContent(false);
+		ZKUpdateUtil.setVflex(dCenter, "flex");
 		dCenter.setAutoscroll(true);
 		
 		detailPanel.setHeight("100%");

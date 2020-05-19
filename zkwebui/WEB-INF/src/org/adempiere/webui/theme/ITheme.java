@@ -15,22 +15,22 @@ package org.adempiere.webui.theme;
 
 /**
  * Interface to hold global theme constant
+ * 
  * @author hengsin
- * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
- * 		<a href="https://github.com/adempiere/adempiere/issues/884">
- * 		@see FR [ 884 ] Recent Items in Dashboard</a>
+ *
  */
 public interface ITheme {
 
-	//theme key in MSysConfig
+	// theme key in MSysConfig
 	public static final String ZK_THEME = "ZK_THEME";
-	//default theme
+	// default theme
 	public static final String ZK_THEME_DEFAULT = "default";
-	//theme resource url prefix
+	// theme resource url prefix
 	public static final String THEME_PATH_PREFIX = "/theme/";
 
-	//css for login window and box
+	// css for login window and box
 	public static final String LOGIN_WINDOW_CLASS = "login-window";
+	public static final String LOGIN_BOX_CLASS = "login-box";
 	public static final String LOGIN_BOX_HEADER_CLASS = "login-box-header";
 	public static final String LOGIN_BOX_HEADER_TXT_CLASS = "login-box-header-txt";
 	public static final String LOGIN_BOX_HEADER_LOGO_CLASS = "login-box-header-logo";
@@ -38,12 +38,12 @@ public interface ITheme {
 	public static final String LOGIN_BOX_FOOTER_CLASS = "login-box-footer";
 	public static final String LOGIN_BOX_FOOTER_PANEL_CLASS = "login-box-footer-pnl";
 
-	//css for login control
+	// css for login control
 	public static final String LOGIN_BUTTON_CLASS = "login-btn";
 	public static final String LOGIN_LABEL_CLASS = "login-label";
 	public static final String LOGIN_FIELD_CLASS = "login-field";
 
-	//optional top, bottom, left, right content for the login page
+	// optional top, bottom, left, right content for the login page
 	public static final String LOGIN_NORTH_PANEL_CLASS = "login-north-panel";
 	public static final String LOGIN_SOUTH_PANEL_CLASS = "login-south-panel";
 	public static final String LOGIN_WEST_PANEL_CLASS = "login-west-panel";
@@ -54,26 +54,35 @@ public interface ITheme {
 	public static final String LOGIN_LEFT_PANEL_ZUL = "/login-left.zul";
 	public static final String LOGIN_RIGHT_PANEL_ZUL = "/login-right.zul";
 
-	//logo
+	// logo
 	public static final String LOGIN_LOGO_IMAGE = "/images/login-logo.png";
 	public static final String HEADER_LOGO_IMAGE = "/images/header-logo.png";
-	public static final String BROWSER_ICON_IMAGE= "/images/icon.png";
-	//	Menu image icon
-	public static final String MENU_WINDOW_IMAGE= "/images/dark/mWindow.png";
-	public static final String MENU_PROCESS_IMAGE= "/images/dark/mProcess.png";
-	public static final String MENU_REPORT_IMAGE= "/images/dark/mReport.png";
-	public static final String MENU_WORKFLOW_IMAGE= "/images/dark/mWorkFlow.png";
-	public static final String MENU_BROWSER_IMAGE= "/images/dark/mBrowse.png";
-	public static final String MENU_TASK_IMAGE= "/images/dark/mProcess.png";
-	public static final String MENU_WORKBENCH_IMAGE= "/images/dark/mWindow.png";
-	//	General
-	public static final String DASHBOARD_DELETE_IMAGE= "/images/dark/Delete16.png";
-	public static final String DASHBOARD_REFRESH_IMAGE= "/images/dark/Refresh16.png";
-	public static final String IMAGE_FOLDER_DARK= "/images/dark/";
-	public static final String IMAGE_FOLDER= "/images/";
-	//	Toolbar
-	public static final String TOOLBAR_FOLDER_IMAGE= "/images/dark";
-	//stylesheet url
+	public static final String BROWSER_ICON_IMAGE = "/images/icon.png";
+	// Menu image icon
+	public static final String MENU_WINDOW_IMAGE = "/images/dark/mWindow.png";
+	public static final String MENU_PROCESS_IMAGE = "/images/dark/mProcess.png";
+	public static final String MENU_REPORT_IMAGE = "/images/dark/mReport.png";
+	public static final String MENU_WORKFLOW_IMAGE = "/images/dark/mWorkFlow.png";
+	public static final String MENU_BROWSER_IMAGE = "/images/dark/mWindow.png";
+	public static final String MENU_TASK_IMAGE = "/images/dark/mProcess.png";
+	public static final String MENU_WORKBENCH_IMAGE = "/images/dark/mWindow.png";
+	public static final String MENU_INFO_IMAGE = "/images/dark/mInfo.png";
+	// General
+	public static final String DASHBOARD_DELETE_IMAGE = "/images/dark/Delete16.png";
+	public static final String DASHBOARD_REFRESH_IMAGE = "/images/dark/Refresh16.png";
+	public static final String IMAGE_FOLDER_DARK = "/images/dark/";
+	public static final String IMAGE_FOLDER = "/images/";
+	public static final String IMAGE_REPORT_PATH = "/images/report/";
+	public static final String IMAGE_FOLDER_ROOT = "images/";
+	public static final String DARK_FOLDER_ROOT = "images/dark/";
+	public static final String WEBUI_FOLDER_IMAGE = "/webui/images/";
+	// stylesheet url
+	// Toolbar
+	public static final String TOOLBAR_FOLDER_IMAGE = "/images/dark/";
+	
 	public static final String THEME_STYLESHEET = "/css/theme.css.dsp";
 	public static final String THEME_STYLESHEET_BY_BROWSER = "/css/theme*.css.dsp*";
+	public static final String THEME_COLOR_STYLESHEET = "/css/color.css.dsp";
+	public static final String THEME_IMAGE_STYLESHEET = "/css/img.css.dsp";
+	public static final String THEME_FONT_STYLESHEET = "/css/font.css.dsp";
 }

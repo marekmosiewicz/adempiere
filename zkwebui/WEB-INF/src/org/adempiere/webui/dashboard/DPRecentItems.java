@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.adempiere.webui.apps.AEnv;
+import org.adempiere.webui.component.SimpleTreeModel;
 import org.adempiere.webui.session.SessionManager;
 import org.adempiere.webui.theme.ITheme;
 import org.adempiere.webui.util.ServerPushTemplate;
@@ -39,11 +40,13 @@ import org.zkoss.zul.DefaultTreeNode;
 import org.zkoss.zul.Toolbar;
 import org.zkoss.zul.Toolbarbutton;
 import org.zkoss.zul.Tree;
+import org.zkoss.zul.TreeModel;
 import org.zkoss.zul.Treecell;
 import org.zkoss.zul.Treeitem;
 import org.zkoss.zul.TreeitemRenderer;
 import org.zkoss.zul.Treerow;
 import org.zkoss.zul.Vbox;
+import org.zkoss.zul.event.TreeDataListener;
 
 /**
  * Dashboard item: Recent Items
@@ -72,7 +75,7 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 	private static final String MSG_RefreshTooltip = "@DPRecentItems_RefreshToolTip@";
 
 	public Tree				tree = null;
-	private DefaultTreeNode	tModel;
+	private SimpleTreeModel	tModel;
 	private DefaultTreeNode	mroot = null;
 
 	private Box				bxRecentItems;
@@ -150,8 +153,8 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 		if (tree.getChildren().size() > 0)
 			tree.removeChild((Component) tree.getChildren().get(0));
 		
-		mroot = new DefaultTreeNode(null, new ArrayList<DefaultTreeNode>());
-		tModel = new DefaultTreeNode(mroot);
+		mroot = new DefaultTreeNode(null, new ArrayList());
+		tModel = new SimpleTreeModel(mroot);
 		tree.setModel(tModel);
 		
 	}
@@ -313,5 +316,6 @@ public class DPRecentItems extends DashboardPanel implements EventListener, Tree
 		ti.setValue(node);
 
 	}
+
 
 }

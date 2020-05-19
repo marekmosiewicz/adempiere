@@ -135,26 +135,27 @@ public class WStringEditor extends WEditor implements ContextMenuListener
 	            displayLength = MAX_DISPLAY_LENGTH;
 	        }
 	        getComponent().setCols(displayLength);
-
 	        if (gridField.getDisplayType() == DisplayType.Text)
 	        {
-	            getComponent().setMultiline(true);
-	            getComponent().setRows(3);
+	        	getComponent().setMultiline(true);
+	        	//FIXME ZK9
+	        	//getComponent().setRows(3);
 	            ((HtmlBasedComponent) getComponent()).setSclass("field-text");
 	        }
 	        else if (gridField.getDisplayType() == DisplayType.TextLong)
 	        {
 	            getComponent().setMultiline(true);
-	            getComponent().setRows(5);
+	          //FIXME ZK9
+	            //getComponent().setRows(5);
 	            ((HtmlBasedComponent)getComponent()).setSclass("field-textlong");
 	        }
 	        else if (gridField.getDisplayType() == DisplayType.Memo)
 	        {
 	            getComponent().setMultiline(true);
-	            getComponent().setRows(8);
+	          //FIXME ZK9
+	            //getComponent().setRows(8);
 	            ((HtmlBasedComponent)getComponent()).setSclass("field-memo");
 	        }
-
 	       
 
 	        popupMenu = new WEditorPopupMenu(false, false, true);

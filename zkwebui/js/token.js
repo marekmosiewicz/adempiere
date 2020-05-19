@@ -13,41 +13,47 @@
  *****************************************************************************/
 var adempiere = {};
 adempiere.store = new Persist.Store('UserToken'); 
+adempiere.isSupportSavePass=typeof(Storage) !== "undefined";
+
 adempiere.saveUserToken = function (key, hash, sessionId)
 {
-	adempiere.store.o.expires = 365;
-	adempiere.store.set(key+".sid", sessionId);
-	adempiere.store.o.expires = 365;
-	adempiere.store.set(key+".hash", hash);	
-}
+	if (!adempiere.isSupportSavePass)
+		return;
+	localStorage[key+".sid"] = sessionId;
+	localStorage[key+".hash"] = hash;
+};
 
 adempiere.findUserToken = function (cmpid, key)
 {
-	var sid;
-
-	var fsid = function(ok, val) {
-		if (ok && !!val && !!sid)
-		{
-			var hash = val;
-			zkau.send({uuid: cmpid, cmd: 'onUserToken', data: [sid, hash], ctl: true});
-		}
-	};
+	if (!adempiere.isSupportSavePass)
+		return;
 	
-	var fhash = function(ok, val) {
-      if (ok && !!val)
-      {
-    	  sid = val;
-    	  adempiere.store.get(key+".hash", fsid);
-      }      
-    };
-    
-    adempiere.store.get(key+".sid", fhash);
-}
+	var sid = localStorage[key+".sid"];
+	var hash = localStorage[key+".hash"];
+
+	if (sid == null || sid == "" || hash == null || hash == ""){
+		return
+	}
+	
+	var widget = zk.Widget.$(cmpid);
+	var event = new zk.Event(widget, 'onUserToken', {sid: sid, hash: hash}, {toServer: true});
+	zAu.send(event);
+};
 
 adempiere.removeUserToken = function (key)
 {
-	adempiere.store.o.expires = -365;
-	adempiere.store.set(key+".sid", "");
-	adempiere.store.o.expires = -365;
-	adempiere.store.set(key+".hash", "");	
+	localStorage[key+".sid"] = "";
+	localStorage[key+".hash"] = "";	
+};
+
+adempiere.set = function (key, value){
+	localStorage[key] = value;
 }
+
+adempiere.get = function (key, fn, scope){
+	value = localStorage[key];
+
+    if (fn)
+      fn.call(scope || this, true, value);
+}
+

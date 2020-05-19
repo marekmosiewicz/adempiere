@@ -13,19 +13,13 @@
  *****************************************************************************/
 package org.adempiere.webui.theme;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.logging.Level;
-
 import org.adempiere.webui.AdempiereWebUI;
+import org.adempiere.webui.util.ZKUtils;
 import org.compiere.model.MClient;
 import org.compiere.model.MClientInfo;
-import org.compiere.model.MImage;
 import org.compiere.model.MSysConfig;
 import org.compiere.util.CCache;
-import org.compiere.util.CLogger;
 import org.compiere.util.Env;
-import org.zkoss.zk.ui.Executions;
 
 /**
  *
@@ -37,8 +31,6 @@ public final class ThemeManager {
     //--> Ashley
     /** Logo Cache           */
     private static CCache<String, String> logoCache = new CCache<String, String>("ZKLogo", 40, 0);
-    /** Static Logger   */
-    private static CLogger  logger   = CLogger.getCLogger(ThemeManager.class);
     
     private static String getLogo(int clientId, String type, String logoFile, String defaultValue)
     {
@@ -72,21 +64,8 @@ public final class ThemeManager {
             }
         }
         
-        try
-        {
-            MImage image = MImage.get(Env.getCtx(), imageId);
-            String logoFilePath = Executions.getCurrent().getDesktop().getWebApp().getRealPath("") + File.separator + logoFile;
-            FileOutputStream outStream = new FileOutputStream(logoFilePath);
-            outStream.write(image.getBinaryData());
-            outStream.close();
-            retLogoPath = logoFile;
-        }
-        catch (Exception ex)
-        {
-            logger.log(Level.SEVERE, "Could not write logo file, using default", ex);
-        }
-        
-        return retLogoPath;
+        ZKUtils.createImageFromLogoID(logoFile, imageId);
+        return logoFile;
     }
     
     private static String getLogo(String type, String defaultValue)
@@ -216,4 +195,40 @@ public final class ThemeManager {
 		String url = builder.toString().intern();
 		return  url;
 	}
+
+	/**
+	 * @return url of color stylesheet
+	 */
+	public static String getColorStyleSheet()
+	{
+		return ITheme.THEME_PATH_PREFIX + getTheme() + ITheme.THEME_COLOR_STYLESHEET;
+	}
+
+	/**
+	 * @return url of image stylesheet
+	 */
+	public static String getImageStyleSheet()
+	{
+		return ITheme.THEME_PATH_PREFIX + getTheme() + ITheme.THEME_IMAGE_STYLESHEET;
+	}
+
+	/**
+	 * @return url of font stylesheet
+	 */
+	public static String getFontStyleSheet()
+	{
+		return ITheme.THEME_PATH_PREFIX + getTheme() + ITheme.THEME_FONT_STYLESHEET;
+	}
+	
+	public static boolean isUseCSSForWindowSize() {
+		//hardcoded for now
+		//return "Y".equals(Env.getContext(Env.getCtx(), ITheme.USE_CSS_FOR_WINDOW_SIZE));
+		return true;
+	}	
+	
+	public static boolean isUseFontIconForImage() {
+		//hardcoded for now
+		//return "Y".equals(Env.getContext(Env.getCtx(), ITheme.USE_FONT_ICON_FOR_IMAGE));
+		return true;
+	}	
 }

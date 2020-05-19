@@ -44,7 +44,7 @@ public class StringBox extends org.zkoss.zul.Textbox
     
 	public boolean isReadonly()
 	{
-		return this.isReadonly();
+		return super.isReadonly();
 	}
         /**
      * 
@@ -60,7 +60,7 @@ public class StringBox extends org.zkoss.zul.Textbox
     {
 		String style = AEnv.isFirefox2() ? "display: inline" : "display: inline-block"; 
         style = style + ";white-space:nowrap";
-        this.setStyle(style);	     
+        super.setStyle(style);	     
     }
     
     
@@ -74,9 +74,9 @@ public class StringBox extends org.zkoss.zul.Textbox
     public void setValue(Object value)
     {
     	if (value == null)
-    		this.setValue(null);
+    		super.setValue(null);
     	else
-    		this.setValue(value.toString());
+    		super.setValue(value.toString());
     }
     
     /**
@@ -85,7 +85,7 @@ public class StringBox extends org.zkoss.zul.Textbox
      */
     public String getValue()
     {
-    	return this.getValue();
+    	return super.getValue();
     }
     
 	/**
@@ -94,7 +94,7 @@ public class StringBox extends org.zkoss.zul.Textbox
 	 */
 	public boolean isEnabled()
 	{
-		 return this.isReadonly();
+		 return super.isReadonly();
 	}
 	
 	/**
@@ -102,165 +102,165 @@ public class StringBox extends org.zkoss.zul.Textbox
      * @param listener
      */
 	public void addFocusListener(EventListener listener) {
-		this.addEventListener(Events.ON_FOCUS, listener);
-		this.addEventListener(Events.ON_BLUR, listener);
+		super.addEventListener(Events.ON_FOCUS, listener);
+		super.addEventListener(Events.ON_BLUR, listener);
 	}
 	
 	@Override
 	public boolean addEventListener(String evtnm, EventListener listener)
 	{
 	     
-	         return this.addEventListener(evtnm, listener);
+	         return super.addEventListener(evtnm, listener);
 	     
 	}
 	
 	@Override
 	public void focus()
 	{
-		this.focus();
+		super.focus();
 	}
 	
-	public Textbox getTextBox()
+	public org.zkoss.zul.Textbox getTextBox()
 	{
-		return this.getTextBox();
+		return this;
 	}
 	@Override
 	public boolean isDisabled() {
-		return this.isDisabled();
+		return super.isDisabled();
 	}
 	@Override
 	public void setDisabled(boolean disabled) {
-		this.setDisabled(disabled);
+		super.setDisabled(disabled);
 	}
 	@Override
 	public void setReadonly(boolean readonly) {
-		this.setReadonly(readonly);
+		super.setReadonly(readonly);
 	}
 	@Override
 	public String getName() {
-		return this.getName();
+		return super.getName();
 	}
 	@Override
 	public void setName(String name) {
-		this.setName(name);
+		super.setName(name);
 	}
 	@Override
 	public String getErrorMessage() {
-		return this.getErrorMessage();
+		return super.getErrorMessage();
 	}
 	@Override
 	public void clearErrorMessage(boolean revalidateRequired) {
-		this.clearErrorMessage(revalidateRequired);
+		super.clearErrorMessage(revalidateRequired);
 	}
 	@Override
 	public void clearErrorMessage() {
-		this.clearErrorMessage();
+		super.clearErrorMessage();
 	}
 	@Override
 	public String getText() throws WrongValueException {
-		return this.getText();
+		return super.getText();
 	}
 	@Override
 	public void setText(String value) throws WrongValueException {
-		this.setText(value);
+		super.setText(value);
 	}
 	@Override
 	public int getMaxlength() {
-		return this.getMaxlength();
+		return super.getMaxlength();
 	}
 	@Override
 	public void setMaxlength(int maxlength) {
-		this.setMaxlength(maxlength);
+		super.setMaxlength(maxlength);
 	}
 	@Override
 	public int getCols() {
-		return this.getCols();
+		return super.getCols();
 	}
 	@Override
 	public void setCols(int cols) throws WrongValueException {
-		this.setCols(cols);
+		super.setCols(cols);
 	}
 	@Override
 	public int getTabindex() {
-		return this.getTabindex();
+		return super.getTabindex();
 	}
 	@Override
 	public void setTabindex(int tabindex) throws WrongValueException {
-		this.setTabindex(tabindex);
+		super.setTabindex(tabindex);
 	}
 	@Override
 	public boolean isMultiline() {
-		return this.isMultiline();
+		return super.isMultiline();
 	}
 	@Override
 	public String getType() {
-		return this.getType();
+		return super.getType();
 	}
 	@Override
 	public void select() {
-		this.select();
+		super.select();
 	}
 	@Override
 	public void setConstraint(String constr) {
-		this.setConstraint(constr);
+		super.setConstraint(constr);
 	}
 	@Override
 	public Object getRawValue() {
-		return this.getRawValue();
+		return super.getRawValue();
 	}
 	@Override
 	public String getRawText() {
-		return this.getRawText();
+		return super.getRawText();
 	}
 	@Override
 	public void setRawValue(Object value) {
-		this.setRawValue(value);
+		super.setRawValue(value);
 	}
 	@Override
 	public boolean isValid() {
-		return this.isValid();
+		return super.isValid();
 	}
 	@Override
 	public void setSelectedText(int start, int end, String newtxt,
 			boolean isHighLight) {
-		this.setSelectedText(start, end, newtxt, isHighLight);
+		super.setSelectedText(start, end, newtxt, isHighLight);
 	}
 	@Override
 	public void setSelectionRange(int start, int end) {
-		this.setSelectionRange(start, end);
+		super.setSelectionRange(start, end);
 	}
 	//FIXME ZK9
 	//@Override
 	//public String getAreaText() {
-	//	return this.getText();
+	//	return super.getText();
 	//}
 	@Override
 	public void setConstraint(Constraint constr) {
-		this.setConstraint(constr);
+		super.setConstraint(constr);
 	}
 	@Override
 	public Constraint getConstraint() {
-		return this.getConstraint();
+		return super.getConstraint();
 	}
 	@Override
 	public void setValue(String value) throws WrongValueException {
-		this.setValue(value);
+		super.setValue(value);
 	}
 	@Override
 	public void setType(String type) throws WrongValueException {
-		this.setType(type);
+		super.setType(type);
 	}
 	@Override
 	public int getRows() {
-		return this.getRows();
+		return super.getRows();
 	}
 	@Override
 	public void setRows(int rows) throws WrongValueException {
-		this.setRows(rows);
+		super.setRows(rows);
 	}
 	@Override
 	public void setMultiline(boolean multiline) {
-		this.setMultiline(multiline);
+		super.setMultiline(multiline);
 	}
 	
 	public void setObscureType(String obscureType)
@@ -278,7 +278,7 @@ public class StringBox extends org.zkoss.zul.Textbox
 	
 	public void setWidth(String width)
 	{
-		this.setWidth(width);
+		super.setWidth(width);
 	}
 	
 	public void setHeight(String height)
