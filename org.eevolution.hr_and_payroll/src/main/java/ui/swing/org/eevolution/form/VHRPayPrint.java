@@ -21,7 +21,7 @@ import org.compiere.apps.ConfirmPanel;
 import org.compiere.apps.form.FormFrame;
 import org.compiere.apps.form.FormPanel;
 import org.compiere.grid.ed.VNumber;
-import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf.CompiereColor;
 import org.compiere.print.ReportCtl;
 import org.compiere.print.ReportEngine;
 import org.compiere.swing.CComboBox;

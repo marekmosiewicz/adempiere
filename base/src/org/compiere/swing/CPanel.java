@@ -23,8 +23,8 @@ import javax.swing.JPanel;
 
 import org.adempiere.plaf.AdempiereLookAndFeel;
 import org.adempiere.plaf.AdempierePLAF;
-import org.compiere.plaf2.CompiereColor;
-import org.compiere.plaf2.CompiereLookAndFeel;
+import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf.CompiereLookAndFeel;
 
 /**
  *  Adempiere Panel supporting colored Backgrounds

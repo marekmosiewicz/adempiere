@@ -39,7 +39,7 @@ import org.compiere.grid.ed.VNumber;
 import org.compiere.model.MLocatorLookup;
 import org.compiere.model.MLookup;
 import org.compiere.model.MLookupFactory;
-import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf.CompiereColor;
 import org.compiere.swing.CCheckBox;
 import org.compiere.swing.CPanel;
 import org.compiere.util.DisplayType;

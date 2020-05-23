@@ -40,7 +40,7 @@ import javax.swing.JComponent;
 import org.compiere.grid.ed.VAssignmentDialog;
 import org.compiere.model.MAssignmentSlot;
 import org.compiere.model.MResourceAssignment;
-import org.compiere.plaf2.CompiereUtils;
+import org.compiere.plaf.CompiereUtils;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Language;

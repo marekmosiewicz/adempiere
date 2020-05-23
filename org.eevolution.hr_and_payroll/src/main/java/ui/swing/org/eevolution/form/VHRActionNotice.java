@@ -44,7 +44,7 @@ import org.compiere.grid.ed.VDate;
 import org.compiere.grid.ed.VLookup;
 import org.compiere.grid.ed.VNumber;
 import org.compiere.minigrid.MiniTable;
-import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf.CompiereColor;
 import org.compiere.swing.CLabel;
 import org.compiere.swing.CPanel;
 import org.compiere.swing.CTextField;

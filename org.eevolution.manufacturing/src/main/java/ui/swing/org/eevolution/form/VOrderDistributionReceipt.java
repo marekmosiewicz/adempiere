@@ -58,7 +58,7 @@ import org.compiere.model.MMovement;
 import org.compiere.model.MMovementLine;
 import org.compiere.model.MQuery;
 import org.compiere.model.PrintInfo;
-import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf.CompiereColor;
 import org.compiere.print.MPrintFormat;
 import org.compiere.print.ReportEngine;
 import org.compiere.print.Viewer;

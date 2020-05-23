@@ -42,7 +42,7 @@ import org.adempiere.plaf.AdempierePLAF;
 import org.compiere.apps.ADialog;
 import org.compiere.apps.ConfirmPanel;
 import org.compiere.model.MSetup;
-import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf.CompiereColor;
 import org.compiere.print.PrintUtil;
 import org.compiere.swing.CPanel;
 import org.compiere.util.CLogger;

@@ -21,8 +21,8 @@ import java.awt.Component;
 import javax.swing.JScrollPane;
 
 import org.adempiere.plaf.AdempierePLAF;
-import org.compiere.plaf2.CompiereColor;
-import org.compiere.plaf2.CompiereLookAndFeel;
+import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf.CompiereLookAndFeel;
 
 /**
  *	Adempiere Srcoll Pane.

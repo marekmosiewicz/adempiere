@@ -83,7 +83,7 @@ import org.compiere.model.MRecentItem;
 import org.compiere.model.MRole;
 import org.compiere.model.MUser;
 import org.compiere.model.MWindow;
-import org.compiere.plaf2.CompiereColor;
+import org.compiere.plaf.CompiereColor;
 import org.compiere.print.AReport;
 import org.compiere.process.DocAction;
 import org.compiere.process.ProcessInfo;

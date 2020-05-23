@@ -42,8 +42,8 @@ import javax.swing.plaf.ComponentInputMapUIResource;
 import org.adempiere.exceptions.ValueChangeListener;
 import org.adempiere.plaf.AdempierePLAF;
 import org.compiere.model.GridField;
-import org.compiere.plaf2.CompiereColor;
-import org.compiere.plaf2.CompiereLookAndFeel;
+import org.compiere.plaf.CompiereColor;
+import org.compiere.plaf.CompiereLookAndFeel;
 
 /**
  * Adempiere Button supporting colored Background
