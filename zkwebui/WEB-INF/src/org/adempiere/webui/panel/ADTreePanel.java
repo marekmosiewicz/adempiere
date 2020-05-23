@@ -14,6 +14,8 @@
 package org.adempiere.webui.panel;
 
 
+import java.util.Collection;
+
 import org.adempiere.webui.component.Checkbox;
 import org.adempiere.webui.component.SimpleTreeModel;
 import org.adempiere.webui.util.TreeUtils;
@@ -201,7 +203,7 @@ public class ADTreePanel extends Panel implements EventListener
 			MTreeNode rootData = (MTreeNode) root.getData();
 			MTreeNode mTreeNode = new MTreeNode (keyID, 0, name, description,
 				rootData.getNode_ID(), isSummary, imageIndicator, false, null);
-			DefaultTreeNode newNode = new DefaultTreeNode(mTreeNode, null); 
+			DefaultTreeNode newNode = new DefaultTreeNode(mTreeNode,(Collection) null); 
 			model.addNode(root, newNode, 0);
 			int[] path = model.getPath(newNode);
 			Treeitem ti = tree.renderItemByPath(path);

@@ -47,10 +47,11 @@ import org.eevolution.model.MHRPaySelectionCheck;
 import org.eevolution.service.HRPayPrint;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
-import org.zkoss.zkex.zul.Borderlayout;
-import org.zkoss.zkex.zul.Center;
-import org.zkoss.zkex.zul.South;
-import org.zkoss.zkmax.zul.Filedownload;
+import org.zkoss.zul.Borderlayout;
+import org.zkoss.zul.Center;
+import org.zkoss.zul.South;
+//FIXME ZK9 download do not work
+//import org.zkoss.zkmax.zul.Filedownload;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -384,7 +385,8 @@ public class WHRPayPrint extends HRPayPrint implements IFormController, EventLis
 				log.log(Level.SEVERE, err.toString(), e);
 			}
 			if (no >= 0) {
-				Filedownload.save(new FileInputStream(tempFile), "plain/text", "paymentExport.txt");
+				//FIXME ZK9 Find download component
+				//Filedownload.save(new FileInputStream(tempFile), "plain/text", "paymentExport.txt");
 				FDialog.info(m_WindowNo, form, "Saved",
 						Msg.getMsg(Env.getCtx(), "NoOfLines") + "=" + no);
 

@@ -38,7 +38,9 @@ public class ZKUtils
 {
 
 	private static final String	SEPARATOR_CSV	= ",";
-
+	
+	private static final int ZK_MAX_UPLOAD_SIZE = 16*1024*1024;
+	
 	/** Logger */
 	private static CLogger log = CLogger.getCLogger(ZKUtils.class);
 
@@ -73,7 +75,8 @@ public class ZKUtils
 	 */
 	public static int getMaxUploadSize()
 	{
-		int size = MSysConfig.getIntValue(MSysConfig.ZK_MAX_UPLOAD_SIZE, 0);
+		
+		int size = ZK_MAX_UPLOAD_SIZE;
 		if (size <= 0)
 			size = AEnv.getDesktop().getWebApp().getConfiguration().getMaxUploadSize();
 		if (size <= 0)

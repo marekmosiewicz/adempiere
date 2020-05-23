@@ -13,10 +13,12 @@
  *****************************************************************************/
 package org.adempiere.webui.component;
 
+import java.util.Map;
+
 import org.adempiere.webui.event.TokenEvent;
 import org.zkoss.lang.Objects;
 import org.zkoss.zk.au.AuRequest;
-import org.zkoss.zk.au.Command;
+import org.zkoss.zk.au.AuService;
 import org.zkoss.zk.mesg.MZk;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.UiException;
@@ -27,24 +29,26 @@ import org.zkoss.zk.ui.event.Events;
  * @author hengsin
  *
  */
-public class TokenCommand extends Command {
+public class TokenCommand implements AuService {
 
 	public TokenCommand(String id, int flags) {
-		super(id, flags);
+		//FIXME ZK9
+		//super(id, flags);
 	}
 
 	@Override
-	protected void process(AuRequest request) {
-		final String[] data = request.getData();
+	public boolean service(AuRequest request, boolean everError) {
+		final Map<String,Object> data = request.getData();
 
 		final Component comp = request.getComponent();
 		if (comp == null)
 			throw new UiException(MZk.ILLEGAL_REQUEST_COMPONENT_REQUIRED, this);
 		
-		if (data == null || data.length < 2)
+		if (data == null || data.size() < 2)
 			throw new UiException(MZk.ILLEGAL_REQUEST_WRONG_DATA, new Object[] {
 					Objects.toString(data), this });
-		
-		Events.postEvent(new TokenEvent(getId(), comp, data));
+		//FIXME ZK9
+		Events.postEvent(new TokenEvent(/*getId()*/"FIXME", comp, data));
+		return true;
 	}
 }
